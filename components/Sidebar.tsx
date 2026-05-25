@@ -14,7 +14,7 @@ const AVAILABLE_MODELS = [
 ];
 
 export default function Sidebar() {
-  const { isSidebarOpen, toggleSidebar } = useUI();
+  const { isSidebarOpen, toggleSidebar, setApiDocsOpen } = useUI();
   const { systemPrompt, model, voice, setSystemPrompt, setModel, setVoice } =
     useSettings();
   const { tools, toggleTool, addTool, removeTool, updateTool } = useTools();
@@ -39,6 +39,24 @@ export default function Sidebar() {
           </button>
         </div>
         <div className="sidebar-content">
+          <div className="sidebar-section" style={{ borderBottom: '1px solid var(--gray-800)', paddingBottom: '16px', marginBottom: '8px' }}>
+            <button
+              onClick={() => setApiDocsOpen(true)}
+              className="add-tool-button api-docs-custom-btn"
+              style={{
+                background: 'linear-gradient(135deg, #1f94ff, #0a5fcc)',
+                color: 'white',
+                border: 'none',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                transition: 'filter 0.2s',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.filter = 'brightness(1.15)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.filter = 'brightness(1)'; }}
+            >
+              <span className="icon">api</span> See API Docs (Swagger)
+            </button>
+          </div>
           <div className="sidebar-section">
             <fieldset disabled={connected}>
               <label>

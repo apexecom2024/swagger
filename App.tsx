@@ -24,6 +24,7 @@ import StreamingConsole from './components/demo/streaming-console/StreamingConso
 
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import ApiDocsModal from './components/ApiDocsModal';
 import { LiveAPIProvider } from './contexts/LiveAPIContext';
 
 const API_KEY = process.env.GEMINI_API_KEY as string;
@@ -44,6 +45,7 @@ function App() {
         <ErrorScreen />
         <Header />
         <Sidebar />
+        <ApiDocsModal />
         <div className="streaming-console">
           <main>
             <div className="main-app-area">

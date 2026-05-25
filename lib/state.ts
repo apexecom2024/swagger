@@ -52,9 +52,13 @@ export const useSettings = create<{
 export const useUI = create<{
   isSidebarOpen: boolean;
   toggleSidebar: () => void;
+  isApiDocsOpen: boolean;
+  setApiDocsOpen: (open: boolean) => void;
 }>(set => ({
   isSidebarOpen: true,
   toggleSidebar: () => set(state => ({ isSidebarOpen: !state.isSidebarOpen })),
+  isApiDocsOpen: false,
+  setApiDocsOpen: open => set({ isApiDocsOpen: open }),
 }));
 
 /**
